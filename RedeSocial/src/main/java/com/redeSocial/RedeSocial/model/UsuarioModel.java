@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
@@ -22,12 +23,14 @@ public class UsuarioModel {
 	private long id;
 	
 	@NotNull
+	@Size (min = 2, max = 100)
 	private String nome;
 	
 	@NotNull
-	private String email; 
+	private String email; //Usuário
 	
 	@NotNull
+	@Size (min = 2, max = 100)
 	private String senha;
 	
 	@OneToMany (mappedBy = "usuario", cascade = CascadeType.ALL)
